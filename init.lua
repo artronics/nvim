@@ -25,7 +25,7 @@ vim.cmd [[autocmd FileType help,qf,fugitive,fugitiveblame,netrw nnoremap <buffer
 vim.cmd [[ au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=500} ]]
 
 -- source vimrc
-vim.cmd('source /home/artronics/.vimrc')
+vim.cmd('source /Users/jalal/.vimrc')
 
 require('artronics/plugins')
 require('artronics/lsp')

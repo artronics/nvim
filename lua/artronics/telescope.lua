@@ -53,9 +53,9 @@ utils.keymap('n', '<leader>f', ':lua require("artronics/telescope").git_files()<
 utils.keymap('n', '<leader>g', ':lua require("artronics/telescope").grep_string()<cr>')
 utils.keymap('n', '<leader><leader>g', ':lua require("artronics/telescope").live_grep()<cr>')
 
-utils.keymap('n', '<C-Space>', ':lua require("artronics/telescope").buffers()<cr>')
+utils.keymap('n', '<leader><space>', ':lua require("artronics/telescope").buffers()<cr>')
 
-utils.keymap('n', '<M-CR>', ':lua require("artronics/telescope").code_actions()<cr>')
+utils.keymap('n', '<localleader>d', ':lua require("artronics/telescope").code_actions()<cr>')
 
 utils.keymap('n', '<leader>r', ':lua require("artronics/telescope").references()<cr>')
 utils.keymap('n', '<leader>i', ':lua require("artronics/telescope").goto_implementation()<cr>')

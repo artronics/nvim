@@ -33,7 +33,7 @@ packer.startup(function()
       { 'hrsh7th/cmp-cmdline' },
       { "hrsh7th/cmp-vsnip" },
       { "hrsh7th/vim-vsnip" },
-      { "onsails/lspkind-nvim" }
+      -- { "onsails/lspkind-nvim" }
     }
   }
   use 'sheerun/vim-polyglot'
@@ -64,6 +64,7 @@ packer.startup(function()
 end
 )
 
+--vim.cmd('colorscheme tokyonight')
 vim.cmd('colorscheme tokyonight')
 
 -- git
@@ -77,6 +78,6 @@ require'nvim-tree'.setup {
         width = 30
     }
 }
-utils.keymap('n', '<M-0>', ':NvimTreeToggle<CR>')
+utils.keymap('n', 'º', ':NvimTreeToggle<CR>')
 utils.keymap('n', '<C-Left>', ':NvimTreeFindFileToggle<CR>') -- reveal current file in tree
 

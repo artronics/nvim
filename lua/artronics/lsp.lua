@@ -3,7 +3,7 @@ local vim = vim
 local cmp = require('cmp')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local nvim_lsp = require('lspconfig')
-local lspkind = require "lspkind"
+-- local lspkind = require "lspkind"
 
 local on_attach  = function(client, bufnr)
     local function buf_nmap(key, result)
@@ -11,18 +11,18 @@ local on_attach  = function(client, bufnr)
     end
     buf_nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
     buf_nmap('gD', ':lua vim.lsp.buf.declaration()<cr>')
-    -- buf_nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
+    -- buf_nmap('gi', ':lua vim.lsp.buf.implementation()<cr>') -- mapped in telescope
     buf_nmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
     buf_nmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
-    -- buf_nmap('gr', ':lua vim.lsp.buf.references()<cr>')
+    -- buf_nmap('gr', ':lua vim.lsp.buf.references()<cr>') -- mapped in telescope
     buf_nmap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
     buf_nmap('ge', ':lua vim.diagnostic.open_float(nil, {focus=false})<cr>')
     buf_nmap('gn', ':lua vim.diagnostic.goto_next()<cr>')
     buf_nmap('gp', ':lua vim.diagnostic.goto_prev()<cr>')
     buf_nmap('K', ':lua vim.lsp.buf.hover()<cr>')
-    buf_nmap('<c-i>', ':lua vim.lsp.buf.signature_help()<cr>')
-    -- buf_nmap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
-    buf_nmap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
+    buf_nmap('<localleader>i', ':lua vim.lsp.buf.signature_help()<cr>')
+    -- buf_nmap('<localleader>af', ':lua vim.lsp.buf.code_action()<cr>') -- mapped in telescope
+    buf_nmap('<leader><leader>r', ':lua vim.lsp.buf.rename()<cr>')
     buf_nmap('<leader><leader>f', ':lua vim.lsp.buf.formatting_sync()<cr>')
 
     client.resolved_capabilities.document_formatting = true
@@ -68,43 +68,43 @@ for type, _ in pairs(signs) do
   vim.fn.sign_define(hl, { text = nil, texthl = hl, numhl = hl })
 end
 
-lspkind.init {
-  with_text = true,
-  preset = 'default',
-  default = {
-    Text = "",
-    String = "𝓐",
-    Method = "ƒ",
-    Function = "ƒ",
-    Boolean = "⊨",
-    Array = "",
-    Type = "𝙏",
-    TypeParameter = "𝙏",
-    Number = "#",
-    Constructor = "",
-    Variable = "",
-    Class = "𝓒",
-    Object = "ﴯ",
-    Record = "{}",
-    Interface = "",
-    Module = "",
-    Namespace = "",
-    Property = "ﰠ",
-    Unit = "",
-    Value = "",
-    Enum = "ℰ",
-    Event = "",
-    Operator = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "𝓢",
-  },
-}
+-- lspkind.init {
+--   with_text = true,
+--   preset = 'default',
+--   default = {
+--     Text = "",
+--     String = "𝓐",
+--     Method = "ƒ",
+--     Function = "ƒ",
+--     Boolean = "⊨",
+--     Array = "",
+--     Type = "𝙏",
+--     TypeParameter = "𝙏",
+--     Number = "#",
+--     Constructor = "",
+--     Variable = "",
+--     Class = "𝓒",
+--     Object = "ﴯ",
+--     Record = "{}",
+--     Interface = "",
+--     Module = "",
+--     Namespace = "",
+--     Property = "ﰠ",
+--     Unit = "",
+--     Value = "",
+--     Enum = "ℰ",
+--     Event = "",
+--     Operator = "",
+--     Keyword = "",
+--     Snippet = "",
+--     Color = "",
+--     File = "",
+--     Folder = "",
+--     EnumMember = "",
+--     Constant = "",
+--     Struct = "𝓢",
+--   },
+-- }
 
 -- Autocompletion
 cmp.setup({
@@ -141,7 +141,8 @@ cmp.setup({
 
   formatting = {
     format = function(_, vim_item)
-      vim_item.kind = string.format("%s", lspkind.presets.default[vim_item.kind])
+      -- vim_item.kind = string.format("%s", lspkind.presets.default[vim_item.kind])
+      vim_item.kind = ""
       return vim_item
     end,
   },
