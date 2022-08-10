@@ -1,10 +1,7 @@
 configs = require'nvim-treesitter.configs'
 
 configs.setup {
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true,
-  },
+  enable = true,
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -65,11 +62,11 @@ configs.setup {
       },
     },
   },
-  -- rainbow = {
-  --   enable = true,
-  --   extended_mode = true, -- Highlight also non-parentheses delimiters
-  --   max_file_lines = 1000,
-  -- },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Highlight also non-parentheses delimiters
+    max_file_lines = 1000,
+  },
 }
 
 

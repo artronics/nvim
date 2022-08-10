@@ -27,6 +27,8 @@ nmap <C-S-p> <Action>(PasteMultiple)
 imap <C-S-i> <Action>(ParameterInfo)
 
 nmap <C-r> <Action>(Run)
+imap <C-r> <Action>(Run)
+
 nmap <C-d> <Action>(Debug)
 nmap <leader>d <Action>(GotoDeclaration)
 
@@ -81,3 +83,8 @@ nmap <c-l> <Action>(NextSplitter)
 
 "nmap <leader>w <Action>(KJumpAction.Word0)
 " nmap <leader>l <Action>(KJumpAction.Line)
+
+" For clojure
+" set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$
+set iskeyword=@,48-57,_,192-255
+

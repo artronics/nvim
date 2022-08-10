@@ -93,7 +93,7 @@ set belloff=all
 set scrolloff=7 "when jumping makes at least 7 lines from top and bottom
 set mouse=a
 
-set guifont=JetbrainsMono\ NF:h20
+set guifont=JetbrainsMono\ NF:h16
 let g:neovide_cursor_animation_length=0.0
 let g:neovide_cursor_trail_length=0.0
 
@@ -101,10 +101,10 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+inoremap <up> <up>
+inoremap <down> <down>
+inoremap <left> <left>
+inoremap <right> <right>
 
 if has("nvim")
 	augroup toggleRelativeLineNumbers
@@ -127,3 +127,6 @@ endif
 if exists('g:vscode')
 	source /Users/jalal/.config/nvim/vscode.vim
 endif
+
+let neovide_cursor_animation_length=0
+let neovide_cursor_trail_length=0

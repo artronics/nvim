@@ -36,7 +36,6 @@ require('artronics/lualine')
 require('artronics/git')
 
 
-
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
